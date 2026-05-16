@@ -1,16 +1,63 @@
-# React + Vite
+# Gestor de Cursos React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web SPA desarrollada en React como parte de la EVA 3 del curso de Programación Frontend en INACAP.
 
-Currently, two official plugins are available:
+## Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Gestor de cursos que consume datos desde una API externa, permite buscar cursos por texto, filtrar por docente, marcar favoritos y alternar entre modo claro y oscuro. Los favoritos y la preferencia de modo oscuro se guardan en localStorage.
 
-## React Compiler
+## Tecnologías utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + Vite
+- Axios
+- LocalStorage
+- ESLint
+- SonarQube Cloud
 
-## Expanding the ESLint configuration
+## Estructura del proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+src/
+├── components/
+│   ├── CourseCard.jsx
+│   ├── CourseList.jsx
+│   ├── SearchBar.jsx
+│   └── Header.jsx
+├── hooks/
+│   └── useLocalStorage.js
+├── services/
+│   └── courseService.js
+├── utils/
+│   └── sanitize.js
+├── App.jsx
+├── main.jsx
+└── App.css
+
+## Funcionalidades
+
+- Consumo de API externa con async/await (jsonplaceholder.typicode.com)
+- Búsqueda de cursos por texto en tiempo real
+- Filtro por docente
+- Favoritos con persistencia en localStorage
+- Modo oscuro con persistencia en localStorage
+- Manejo de errores con botón de reintento
+- Sanitización de texto desde la API
+- Análisis de calidad con SonarQube Cloud
+
+## Buenas prácticas de seguridad aplicadas
+
+- Sin uso de dangerouslySetInnerHTML
+- Sanitización de datos externos
+- Sin almacenamiento de datos sensibles en localStorage
+- Validación de entradas del usuario (maxLength, trim, toLowerCase)
+- Separación de responsabilidades por carpetas
+
+## Instalación
+
+```bash
+npm install
+npm run dev
+```
+
+## Autor
+
+Sebastián Andres Pasmiño Toledo — INACAP Valparaíso
